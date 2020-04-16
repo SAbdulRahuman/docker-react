@@ -1,0 +1,15 @@
+# Using node image from docker
+FROM node:alpine
+
+# Setting the working dir to /app
+WORKDIR '/app'
+
+#Copy package.json to /app/
+COPY package.json .
+
+RUN npm install
+# COPY ENTIRE DIRECTORY TO /app
+COPY . .
+
+CMD ["npm","run", "start"]
+
